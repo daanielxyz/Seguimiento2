@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.seguimiento2.modelo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.time.LocalDate;
 
     @Data
     @AllArgsConstructor
@@ -10,7 +11,7 @@ import lombok.Data;
         public String telefono;
         public String email;
         public String direccion;
-        public String fechaNacimiento;
+        public LocalDate fechaNacimiento;
     }
 
 

@@ -25,7 +25,15 @@ public class GestorContactos {
     }
 
     public void eliminarContacto(Contacto contacto) throws Exception {
-        
+        if(!listaContactos.contains(contacto)) {
+            throw new Exception("No existe un contacto con ese nombre");
+        } else{
+            listaContactos.remove(contacto);
+        }
     }
 
+    public Contacto buscarContacto(String nombre, String telefono) throws Exception {
+        return listaContactos.stream().filter(contacto -> contacto.getNombre().equalsIgnoreCase(nombre)&&contacto.getTelefono().equals(telefono))
+                .findFirst().orElseThrow(() -> new Exception("No existe el contacto indicado"));
+    }
 }

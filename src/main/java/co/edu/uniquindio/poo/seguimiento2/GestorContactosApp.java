@@ -10,7 +10,7 @@ public class GestorContactosApp extends Application {
         public void start(Stage stage) throws Exception {
 
 
-            FXMLLoader loader = new FXMLLoader(GestorContactosApp.class.getResource("/inicio.fxml"));
+            FXMLLoader loader = new FXMLLoader(GestorContactosApp.class.getResource("/principal.fxml"));
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             stage.setScene(scene);
