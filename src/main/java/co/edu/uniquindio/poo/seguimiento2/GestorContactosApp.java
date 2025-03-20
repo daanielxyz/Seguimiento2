@@ -5,12 +5,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TestApp extends Application {
+public class GestorContactosApp extends Application {
         @Override
         public void start(Stage stage) throws Exception {
 
 
-            FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("inicio.fxml"));
+            FXMLLoader loader = new FXMLLoader(GestorContactosApp.class.getResource("/inicio.fxml"));
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             stage.setScene(scene);
@@ -18,6 +18,6 @@ public class TestApp extends Application {
             stage.show();
         }
         public static void main(String[] args) {
-            launch(TestApp.class, args);
+            launch(GestorContactosApp.class, args);
         }
 }
