@@ -19,6 +19,8 @@ public class GestorContactosController {
             throw new Exception("El apellido no puede estar vacío.");
         } else if (contacto.getTelefono() == null || contacto.getTelefono().trim().isEmpty()) {
             throw new Exception("El telefono no puede estar vacío.");
+        } else if (gestorContactos.getListaContactos().stream().anyMatch(c -> c.getTelefono().equals(contacto.getTelefono()))){
+            throw new Exception("Ya existe un contacto con este numero telefónico.");
         } else if (!contacto.getTelefono().matches("\\d+")) {
             throw new Exception("El telefono no puede contener caracteres.");
         } else if (contacto.getEmail() == null || contacto.getEmail().trim().isEmpty()) {
