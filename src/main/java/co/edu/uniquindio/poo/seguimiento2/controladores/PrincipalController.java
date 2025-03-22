@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.seguimiento2.controladores;
 
 import co.edu.uniquindio.poo.seguimiento2.modelo.Contacto;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,6 +41,31 @@ public class PrincipalController implements Initializable {
         columnaDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
         columnaFechaNacimiento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFechaNacimiento().toString()));
         tablaContactos.setItems(listaContactos);
+
+        tablaContactos.setRowFactory(tv -> {
+            TableRow<Contacto> row = new TableRow<>();
+            ContextMenu contextMenu = new ContextMenu();
+
+            MenuItem delete = new MenuItem("Eliminar");
+            MenuItem edit = new MenuItem("Editar");
+
+            delete.setOnAction(event -> {
+                System.out.println(row.getItem().email);
+            });
+
+            edit.setOnAction(event -> {
+                System.out.println(row.getItem().email);
+            });
+
+            contextMenu.getItems().addAll(delete, edit);
+
+            row.contextMenuProperty().bind(
+                    Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                            .then(contextMenu)
+                            .otherwise((ContextMenu)null));
+
+            return row;
+        });
     }
 
     @FXML
@@ -48,4 +74,6 @@ public class PrincipalController implements Initializable {
         gestorContactosController.agregarContacto(contactoNuevo.getNombre(), contactoNuevo.getApellido(), contactoNuevo.getTelefono(), contactoNuevo.getEmail(), contactoNuevo.getDireccion(), contactoNuevo.getFechaNacimiento());
         listaContactos.add(contactoNuevo);
     }
+
+
 }

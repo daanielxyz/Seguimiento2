@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
-   <children>
-      <AnchorPane layoutY="62.0" prefHeight="259.0" prefWidth="368.0" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="62.0">
-         <children>
-            <TableView layoutX="-35.0" prefHeight="259.0" prefWidth="368.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <columns>
-                <TableColumn prefWidth="56.0" text="Nombre" />
-                <TableColumn prefWidth="57.0" text="Apellido" />
-                  <TableColumn prefWidth="65.0" text="Telefono" />
-                  <TableColumn prefWidth="55.0" text="Correo" />
-                  <TableColumn prefWidth="64.0" text="Direccion" />
-                  <TableColumn prefWidth="73.0" text="Nacimiento" />
-              </columns>
-            </TableView>
-         </children></AnchorPane>
-   </children>
-</AnchorPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
+
+    <top>
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Gestor de Contactos" />
+    </top>
+
+    <center>
+        <TableView fx:id="tablaContactos">
+            <columns>
+                <TableColumn fx:id="columnaNombre" prefWidth="100" text="Nombre" />
+                <TableColumn fx:id="columnaApellido" prefWidth="100" text="Apellido" />
+                <TableColumn fx:id="columnaTelefono" prefWidth="100" text="Teléfono" />
+                <TableColumn fx:id="columnaEmail" prefWidth="150" text="Email" />
+                <TableColumn fx:id="columnaDireccion" prefWidth="200" text="Dirección" />
+                <TableColumn fx:id="columnaFechaNacimiento" prefWidth="120" text="Fecha de Nacimiento" />
+            </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10">
+           <children>
+               <GridPane hgap="10" vgap="10">
+                  <children>
+                      <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                      <TextField fx:id="campoNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      
+                      <Label text="Apellido:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                      <TextField fx:id="campoApellido" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+      
+                      <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                      <TextField fx:id="campoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      
+                      <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                      <TextField fx:id="campoEmail" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      
+                      <Label text="Dirección:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                      <TextField fx:id="campoDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      
+                      <Label text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                      <DatePicker fx:id="campoFechaNacimiento" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints maxWidth="100.0" />
+                  <ColumnConstraints />
+                  <ColumnConstraints maxWidth="100.0" />
+               </columnConstraints>
+               </GridPane>
+   
+               <Button maxWidth="200" onAction="#agregarContacto" text="Agregar Contacto" />
+           </children>
+        </VBox>
+    </bottom>
+
+</BorderPane>
