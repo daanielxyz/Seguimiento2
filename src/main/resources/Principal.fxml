@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
 
     <top>
         <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Gestor de Contactos" />
@@ -56,6 +54,11 @@
                   <ColumnConstraints />
                   <ColumnConstraints maxWidth="100.0" />
                </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                </GridPane>
    
                <Button maxWidth="200" onAction="#agregarContacto" text="Agregar Contacto" />
