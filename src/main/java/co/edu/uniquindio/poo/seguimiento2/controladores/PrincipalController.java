@@ -95,24 +95,4 @@ public class PrincipalController implements Initializable {
         listaContactos.add(contactoNuevo);
     }
 
-    @FXML
-    private void actualizarContacto() throws Exception {
-        Contacto contactoSeleccionado = tablaContactos.getSelectionModel().getSelectedItem();
-
-        if (contactoSeleccionado != null) {
-            contactoSeleccionado.setNombre(campoNombre.getText());
-            contactoSeleccionado.setApellido(campoApellido.getText());
-            contactoSeleccionado.setTelefono(campoTelefono.getText());
-            contactoSeleccionado.setEmail(campoEmail.getText());
-            contactoSeleccionado.setDireccion(campoDireccion.getText());
-            contactoSeleccionado.setFechaNacimiento(campoFechaNacimiento.getValue());
-
-            tablaContactos.refresh();
-        } else {
-            Alert alerta = new Alert(Alert.AlertType.WARNING, "Seleccione un contacto para editar", ButtonType.OK);
-            alerta.showAndWait();
-        }
-    }
-
-
 }

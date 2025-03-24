@@ -4,6 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+/*DUDAS A RESOLVER:
+    la validacion de contacto existente tiene que ser solo por telefono o telefono y nombre?
+ */
 
 public class GestorContactosApp extends Application {
         @Override
@@ -14,7 +17,7 @@ public class GestorContactosApp extends Application {
             Parent parent = loader.load();
             Scene scene = new Scene(parent);
             stage.setScene(scene);
-            stage.setTitle("Test");
+            stage.setTitle("Gestor de Contactos");
             stage.show();
         }
         public static void main(String[] args) {

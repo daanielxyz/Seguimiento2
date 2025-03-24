@@ -42,6 +42,18 @@ public class GestorContactosController {
         gestorContactos.agregarContacto(nuevoContacto);
     }
 
+    public void actualizarContacto(Contacto contacto, String nombreNuevo, String apellidoNuevo, String telefonoNuevo, String correoNuevo, String direccionNueva, LocalDate fechaNueva) throws Exception {
+        validarContacto(contacto);
+        Contacto nuevoContacto = new Contacto(nombreNuevo, apellidoNuevo, telefonoNuevo, correoNuevo, direccionNueva, fechaNueva);
+        validarContacto(nuevoContacto);
+        contacto.setNombre(nuevoContacto.getNombre());
+        contacto.setApellido(nuevoContacto.getApellido());
+        contacto.setTelefono(nuevoContacto.getTelefono());
+        contacto.setEmail(nuevoContacto.getEmail());
+        contacto.setDireccion(nuevoContacto.getDireccion());
+        contacto.setFechaNacimiento(fechaNueva);
+    }
+
     public void eliminarContacto(String nombre, String telefono) throws Exception {
         Contacto contactoEliminar = gestorContactos.buscarContacto(nombre, telefono);
         if (contactoEliminar == null) {

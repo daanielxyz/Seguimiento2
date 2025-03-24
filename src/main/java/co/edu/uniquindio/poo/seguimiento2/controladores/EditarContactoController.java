@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+
 public class EditarContactoController {
 
     @FXML private TextField campoNombre;
@@ -30,16 +32,17 @@ public class EditarContactoController {
     }
 
     @FXML
-    private void guardarCambios() {
-        contactoActual.setNombre(campoNombre.getText());
-        contactoActual.setApellido(campoApellido.getText());
-        contactoActual.setTelefono(campoTelefono.getText());
-        contactoActual.setEmail(campoEmail.getText());
-        contactoActual.setDireccion(campoDireccion.getText());
-        contactoActual.setFechaNacimiento(campoFechaNacimiento.getValue());
+    private void actualizarDatosUsuario() throws Exception {
+        String nuevoNombre = campoNombre.getText();
+        String nuevoApellido = campoApellido.getText();
+        String nuevoTelefono = campoTelefono.getText();
+        String nuevoEmail = campoEmail.getText();
+        String nuevaDireccion = campoDireccion.getText();
+        LocalDate nuevaFechaNacimiento = campoFechaNacimiento.getValue();
 
+        GestorContactosController gestor = new GestorContactosController();
+        gestor.actualizarContacto(contactoActual, nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail, nuevaDireccion, nuevaFechaNacimiento);
         callbackActualizarTabla.run();
-
         cerrarVentana();
     }
 
