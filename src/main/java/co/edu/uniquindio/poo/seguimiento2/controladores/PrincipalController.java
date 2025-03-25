@@ -55,7 +55,11 @@ public class PrincipalController implements Initializable {
             MenuItem edit = new MenuItem("Editar");
 
             delete.setOnAction(event -> {
-                System.out.println(row.getItem().email);
+                try {
+                    eliminarContacto();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             });
 
             edit.setOnAction(event -> {
@@ -95,4 +99,10 @@ public class PrincipalController implements Initializable {
         listaContactos.add(contactoNuevo);
     }
 
+    @FXML
+    private void eliminarContacto() throws Exception {
+        gestorContactosController.eliminarContacto(campoNombre.getText(), campoTelefono.getText());
+        Contacto contactoSeleccionado = new Contacto(campoNombre.getText(), campoApellido.getText(), campoTelefono.getText(), campoEmail.getText(), campoDireccion.getText(), campoFechaNacimiento.getValue());
+        listaContactos.remove(contactoSeleccionado);
+    }
 }

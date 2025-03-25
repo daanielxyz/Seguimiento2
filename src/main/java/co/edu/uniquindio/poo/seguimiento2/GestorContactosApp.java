@@ -5,7 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 /*DUDAS A RESOLVER:
-    la validacion de contacto existente tiene que ser solo por telefono o telefono y nombre?
+    -la validacion de contacto existente tiene que ser solo por telefono o telefono y nombre?
+    -error en la validacion del telefono repetido al editar un contacto
  */
 
 public class GestorContactosApp extends Application {

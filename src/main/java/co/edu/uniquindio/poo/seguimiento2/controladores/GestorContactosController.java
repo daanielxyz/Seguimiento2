@@ -3,6 +3,7 @@ import co.edu.uniquindio.poo.seguimiento2.modelo.Contacto;
 import co.edu.uniquindio.poo.seguimiento2.modelo.GestorContactos;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GestorContactosController {
 
@@ -36,22 +37,22 @@ public class GestorContactosController {
         }
     }
 
+
     public void agregarContacto(String nombre, String apellido, String telefono, String email, String direccion, LocalDate fechaNacimiento) throws Exception {
         Contacto nuevoContacto = new Contacto(nombre, apellido, telefono, email, direccion, fechaNacimiento);
         validarContacto(nuevoContacto);
         gestorContactos.agregarContacto(nuevoContacto);
     }
 
-    public void actualizarContacto(Contacto contacto, String nombreNuevo, String apellidoNuevo, String telefonoNuevo, String correoNuevo, String direccionNueva, LocalDate fechaNueva) throws Exception {
-        validarContacto(contacto);
-        Contacto nuevoContacto = new Contacto(nombreNuevo, apellidoNuevo, telefonoNuevo, correoNuevo, direccionNueva, fechaNueva);
-        validarContacto(nuevoContacto);
-        contacto.setNombre(nuevoContacto.getNombre());
-        contacto.setApellido(nuevoContacto.getApellido());
-        contacto.setTelefono(nuevoContacto.getTelefono());
-        contacto.setEmail(nuevoContacto.getEmail());
-        contacto.setDireccion(nuevoContacto.getDireccion());
-        contacto.setFechaNacimiento(fechaNueva);
+    public void actualizarContacto(Contacto contactoActual, Contacto contactoDatosActualizados) throws Exception {
+        validarContacto(contactoDatosActualizados);
+        validarContacto(contactoActual);
+        contactoActual.setNombre(contactoDatosActualizados.getNombre());
+        contactoActual.setApellido(contactoDatosActualizados.getApellido());
+        contactoActual.setTelefono(contactoDatosActualizados.getTelefono());
+        contactoActual.setDireccion(contactoDatosActualizados.getDireccion());
+        contactoActual.setEmail(contactoDatosActualizados.getEmail());
+        contactoActual.setFechaNacimiento(contactoDatosActualizados.getFechaNacimiento());
     }
 
     public void eliminarContacto(String nombre, String telefono) throws Exception {

@@ -33,15 +33,9 @@ public class EditarContactoController {
 
     @FXML
     private void actualizarDatosUsuario() throws Exception {
-        String nuevoNombre = campoNombre.getText();
-        String nuevoApellido = campoApellido.getText();
-        String nuevoTelefono = campoTelefono.getText();
-        String nuevoEmail = campoEmail.getText();
-        String nuevaDireccion = campoDireccion.getText();
-        LocalDate nuevaFechaNacimiento = campoFechaNacimiento.getValue();
-
+        Contacto datosNuevos = new Contacto(campoNombre.getText(), campoApellido.getText(), campoTelefono.getText(), campoEmail.getText(), campoDireccion.getText(), campoFechaNacimiento.getValue() );
         GestorContactosController gestor = new GestorContactosController();
-        gestor.actualizarContacto(contactoActual, nuevoNombre, nuevoApellido, nuevoTelefono, nuevoEmail, nuevaDireccion, nuevaFechaNacimiento);
+        gestor.actualizarContacto(contactoActual, datosNuevos);
         callbackActualizarTabla.run();
         cerrarVentana();
     }
