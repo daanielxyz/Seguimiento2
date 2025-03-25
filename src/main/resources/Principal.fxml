@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
+<BorderPane prefHeight="639.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
 
     <top>
       <HBox>
@@ -50,44 +51,76 @@
     <bottom>
       <Pane BorderPane.alignment="CENTER_LEFT">
          <children>
-              <VBox layoutY="1.0" maxWidth="-Infinity" prefHeight="137.0" prefWidth="402.0" spacing="10">
-                 <children>
-                     <GridPane hgap="10" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="397.0" vgap="10">
-                        <children>
-                            <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                            <TextField fx:id="campoNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            
-                            <Label text="Apellido:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                            <TextField fx:id="campoApellido" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-            
-                            <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                            <TextField fx:id="campoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            
-                            <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                            <TextField fx:id="campoEmail" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            
-                            <Label text="Dirección:" GridPane.rowIndex="2" />
-                            <TextField fx:id="campoDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            
-                            <Label text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                            <DatePicker fx:id="campoFechaNacimiento" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        </children>
-                     <columnConstraints>
-                        <ColumnConstraints />
-                        <ColumnConstraints maxWidth="100.0" />
-                        <ColumnConstraints />
-                        <ColumnConstraints maxWidth="145.0" minWidth="77.0" prefWidth="91.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                        <RowConstraints />
-                     </rowConstraints>
-                     </GridPane>
+            <Pane layoutY="1.0" prefHeight="134.0" prefWidth="430.0">
+               <children>
+                    <VBox layoutX="5.0" maxWidth="-Infinity" prefHeight="106.0" prefWidth="425.0" spacing="10">
+                       <children>
+                           <GridPane alignment="CENTER" hgap="10" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="420.0" vgap="10">
+                              <children>
+                                  <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                  <TextField fx:id="campoNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  
+                                                    <Label text="Apellido:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                  <TextField fx:id="campoApellido" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                  
+                                  <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                  <TextField fx:id="campoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  
+                                  <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                  <TextField fx:id="campoEmail" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  
+                                  <Label text="Dirección:" GridPane.rowIndex="2" />
+                                  <TextField fx:id="campoDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  
+                                  <Label text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                  <DatePicker fx:id="campoFechaNacimiento" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints maxWidth="100.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints maxWidth="145.0" minWidth="77.0" prefWidth="91.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                           </GridPane>
+                       </children>
+                    </VBox>
          
-                     <Button maxWidth="200" onAction="#agregarContacto" text="Agregar Contacto" />
-                 </children>
-              </VBox>
+                                                   <Button layoutX="5.0" layoutY="106.0" maxWidth="200.0" onAction="#agregarContacto" prefHeight="25.0" prefWidth="388.0" text="Agregar Contacto" />
+                  <Button fx:id="seleccionarFotoPerfil" layoutX="215.0" layoutY="106.0" maxWidth="200.0" onAction="#agregarFotoPerfil" prefHeight="15.0" prefWidth="196.0" text="Agregar foto de perfil" />
+               </children>
+            </Pane>
+            <VBox layoutX="424.0" layoutY="4.0" prefHeight="131.0" prefWidth="109.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="111.0" text="Foto de perfil" />
+                  <ImageView fx:id="fotoContactoSeleccionado" fitHeight="111.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox layoutX="546.0" prefHeight="136.0" prefWidth="223.0">
+               <children>
+                  <GridPane prefHeight="132.0" prefWidth="223.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="39.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="90.0" text="Buscar contacto:" />
+                        <TextField fx:id="campoBusquedaNombre" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#mostrarContactoPorNombre" text="Button" GridPane.columnIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
          </children>
       </Pane>
     </bottom>

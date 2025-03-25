@@ -36,4 +36,8 @@ public class GestorContactos {
         return listaContactos.stream().filter(contacto -> contacto.getNombre().equalsIgnoreCase(nombre)&&contacto.getTelefono().equals(telefono))
                 .findFirst().orElseThrow(() -> new Exception("No existe el contacto indicado"));
     }
+
+    public Contacto buscarContactoPorNombre(String nombre) {
+        return listaContactos.stream().filter(c -> c.getNombre().equalsIgnoreCase(nombre)).findFirst().orElse(null);
+    }
 }

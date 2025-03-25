@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 /*DUDAS A RESOLVER:
-    -la validacion de contacto existente tiene que ser solo por telefono o telefono y nombre?
     -error en la validacion del telefono repetido al editar un contacto
  */
 

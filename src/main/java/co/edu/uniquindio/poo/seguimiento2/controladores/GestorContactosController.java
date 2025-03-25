@@ -20,7 +20,7 @@ public class GestorContactosController {
             throw new Exception("El apellido no puede estar vacío.");
         } else if (contacto.getTelefono() == null || contacto.getTelefono().trim().isEmpty()) {
             throw new Exception("El telefono no puede estar vacío.");
-        } else if (gestorContactos.getListaContactos().stream().anyMatch(c -> c.getTelefono().equals(contacto.getTelefono()))){
+        } else if (gestorContactos.getListaContactos().stream().anyMatch(c -> c.getTelefono().equals(contacto.getTelefono()))) {
             throw new Exception("Ya existe un contacto con este numero telefónico.");
         } else if (!contacto.getTelefono().matches("\\d+")) {
             throw new Exception("El telefono no puede contener caracteres.");
@@ -38,8 +38,9 @@ public class GestorContactosController {
     }
 
 
-    public void agregarContacto(String nombre, String apellido, String telefono, String email, String direccion, LocalDate fechaNacimiento) throws Exception {
+    public void agregarContacto(String nombre, String apellido, String telefono, String email, String direccion, LocalDate fechaNacimiento, String fotoPerfil) throws Exception {
         Contacto nuevoContacto = new Contacto(nombre, apellido, telefono, email, direccion, fechaNacimiento);
+        nuevoContacto.setFotoPerfil(fotoPerfil);
         validarContacto(nuevoContacto);
         gestorContactos.agregarContacto(nuevoContacto);
     }
@@ -53,6 +54,7 @@ public class GestorContactosController {
         contactoActual.setDireccion(contactoDatosActualizados.getDireccion());
         contactoActual.setEmail(contactoDatosActualizados.getEmail());
         contactoActual.setFechaNacimiento(contactoDatosActualizados.getFechaNacimiento());
+        contactoActual.setFotoPerfil(contactoDatosActualizados.getFotoPerfil());
     }
 
     public void eliminarContacto(String nombre, String telefono) throws Exception {
@@ -64,11 +66,15 @@ public class GestorContactosController {
         }
     }
 
-    public Contacto buscarContacto(String nombre, String telefono) throws Exception {
-        return gestorContactos.buscarContacto(nombre, telefono);
+    public Contacto buscarContactoPorNombre(String nombre) throws Exception {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new Exception("El nombre de búsqueda no puede estar vacío.");
+        }
+        Contacto contacto = gestorContactos.buscarContactoPorNombre(nombre);
+        if (contacto == null) {
+            throw new Exception("No se encontró un contacto con el nombre '" + nombre + "'.");
+        }
+        return contacto;
     }
 
-    public List<Contacto> obtenerContactos(){
-        return gestorContactos.getListaContactos();
-    }
 }
