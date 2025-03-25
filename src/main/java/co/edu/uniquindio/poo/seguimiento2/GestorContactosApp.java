@@ -1,8 +1,10 @@
 package co.edu.uniquindio.poo.seguimiento2;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 /*DUDAS A RESOLVER:
     -la validacion de contacto existente tiene que ser solo por telefono o telefono y nombre?
@@ -23,5 +25,8 @@ public class GestorContactosApp extends Application {
         }
         public static void main(String[] args) {
             launch(GestorContactosApp.class, args);
+        }
+        public static void LlenarComboBox(ComboBox<String> llenarCombo, ObservableList<String> infoCombo){
+            llenarCombo.setItems(infoCombo);
         }
 }

@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
 
     <top>
-        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Gestor de Contactos" />
+      <HBox>
+         <children>
+              <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Gestor de Contactos" />
+            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="562.0">
+               <children>
+                  <ComboBox fx:id="categoriaFiltroComboBox" onShowing="#categoriaFiltrar" prefHeight="25.0" prefWidth="94.0" promptText="Filtrar por" />
+                  <TextField fx:id="campoFiltro" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
     </top>
 
     <center>
@@ -26,44 +48,48 @@
     </center>
 
     <bottom>
-        <VBox spacing="10">
-           <children>
-               <GridPane hgap="10" vgap="10">
-                  <children>
-                      <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                      <TextField fx:id="campoNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-      
-                      <Label text="Apellido:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                      <TextField fx:id="campoApellido" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-      
-                      <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                      <TextField fx:id="campoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      
-                      <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                      <TextField fx:id="campoEmail" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      
-                      <Label text="Dirección:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                      <TextField fx:id="campoDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      
-                      <Label text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                      <DatePicker fx:id="campoFechaNacimiento" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  </children>
-               <columnConstraints>
-                  <ColumnConstraints />
-                  <ColumnConstraints maxWidth="100.0" />
-                  <ColumnConstraints />
-                  <ColumnConstraints maxWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-               </rowConstraints>
-               </GridPane>
-   
-               <Button maxWidth="200" onAction="#agregarContacto" text="Agregar Contacto" />
-           </children>
-        </VBox>
+      <Pane BorderPane.alignment="CENTER_LEFT">
+         <children>
+              <VBox layoutY="1.0" maxWidth="-Infinity" prefHeight="137.0" prefWidth="402.0" spacing="10">
+                 <children>
+                     <GridPane hgap="10" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="397.0" vgap="10">
+                        <children>
+                            <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <TextField fx:id="campoNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            
+                            <Label text="Apellido:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                            <TextField fx:id="campoApellido" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            
+                            <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="campoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            
+                            <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                            <TextField fx:id="campoEmail" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            
+                            <Label text="Dirección:" GridPane.rowIndex="2" />
+                            <TextField fx:id="campoDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            
+                            <Label text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                            <DatePicker fx:id="campoFechaNacimiento" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints maxWidth="100.0" />
+                        <ColumnConstraints />
+                        <ColumnConstraints maxWidth="145.0" minWidth="77.0" prefWidth="91.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                     </GridPane>
+         
+                     <Button maxWidth="200" onAction="#agregarContacto" text="Agregar Contacto" />
+                 </children>
+              </VBox>
+         </children>
+      </Pane>
     </bottom>
 
 </BorderPane>
