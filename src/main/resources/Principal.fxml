@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,13 +16,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="639.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
+<BorderPane prefHeight="638.0" prefWidth="806.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.seguimiento2.controladores.PrincipalController">
 
     <top>
       <HBox>
          <children>
-              <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Gestor de Contactos" />
+              <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" stylesheets="@style.css" text="Gestor de Contactos" />
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="562.0">
                <children>
                   <ComboBox fx:id="categoriaFiltroComboBox" onShowing="#categoriaFiltrar" prefHeight="25.0" prefWidth="94.0" promptText="Filtrar por" />
@@ -49,37 +51,55 @@
     </center>
 
     <bottom>
-      <Pane BorderPane.alignment="CENTER_LEFT">
+      <Pane prefHeight="162.0" prefWidth="772.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutY="1.0" prefHeight="134.0" prefWidth="430.0">
+            <Pane layoutY="1.0" prefHeight="159.0" prefWidth="430.0">
                <children>
                     <VBox layoutX="5.0" maxWidth="-Infinity" prefHeight="106.0" prefWidth="425.0" spacing="10">
                        <children>
-                           <GridPane alignment="CENTER" hgap="10" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="420.0" vgap="10">
+                           <GridPane alignment="CENTER" hgap="10" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="113.0" prefWidth="405.0" vgap="10">
                               <children>
-                                  <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                  <Label text="Nombre:" textFill="#3e350e" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="15.0" />
+                                 </font></Label>
                                   <TextField fx:id="campoNombre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  
-                                                    <Label text="Apellido:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                  <TextField fx:id="campoApellido" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-                  
-                                  <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                                                    <Label text="Apellido:" textFill="#3e350e" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="16.0" />
+                                 </font></Label>
+                                  <TextField fx:id="campoApellido" prefHeight="31.0" prefWidth="98.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                                  <Label text="Teléfono:" textFill="#3e350e" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="13.0" />
+                                 </font></Label>
                                   <TextField fx:id="campoTelefono" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  
-                                  <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                  <TextField fx:id="campoEmail" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  
-                                  <Label text="Dirección:" GridPane.rowIndex="2" />
+
+                                  <Label text="Email:" textFill="#3e350e" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="18.0" />
+                                 </font></Label>
+                                  <TextField fx:id="campoEmail" prefHeight="31.0" prefWidth="79.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                  <Label text="Dirección:" textFill="#3e350e" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="13.0" />
+                                 </font></Label>
                                   <TextField fx:id="campoDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  
-                                  <Label text="Fecha de Nacimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+                                  <Label text="DD/MM/YY" textFill="#3e350e" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS Bold" size="13.0" />
+                                 </font></Label>
                                   <DatePicker fx:id="campoFechaNacimiento" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               </children>
                            <columnConstraints>
                               <ColumnConstraints />
                               <ColumnConstraints maxWidth="100.0" />
-                              <ColumnConstraints />
-                              <ColumnConstraints maxWidth="145.0" minWidth="77.0" prefWidth="91.0" />
+                              <ColumnConstraints maxWidth="125.0" minWidth="69.0" prefWidth="74.0" />
+                              <ColumnConstraints maxWidth="145.0" minWidth="77.0" prefWidth="132.0" />
                            </columnConstraints>
                            <rowConstraints>
                               <RowConstraints />
@@ -89,34 +109,54 @@
                            </GridPane>
                        </children>
                     </VBox>
-         
-                                                   <Button layoutX="5.0" layoutY="106.0" maxWidth="200.0" onAction="#agregarContacto" prefHeight="25.0" prefWidth="388.0" text="Agregar Contacto" />
-                  <Button fx:id="seleccionarFotoPerfil" layoutX="215.0" layoutY="106.0" maxWidth="200.0" onAction="#agregarFotoPerfil" prefHeight="15.0" prefWidth="196.0" text="Agregar foto de perfil" />
+
+                                                   <Button layoutX="5.0" layoutY="120.0" maxWidth="200.0" onAction="#agregarContacto" prefHeight="25.0" prefWidth="388.0" text="Agregar Contacto" />
+                  <Button fx:id="seleccionarFotoPerfil" layoutX="215.0" layoutY="120.0" maxWidth="200.0" onAction="#agregarFotoPerfil" prefHeight="15.0" prefWidth="196.0" text="Agregar foto" />
                </children>
             </Pane>
-            <VBox layoutX="424.0" layoutY="4.0" prefHeight="131.0" prefWidth="109.0">
+            <VBox layoutX="424.0" layoutY="4.0" prefHeight="151.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="111.0" text="Foto de perfil" />
-                  <ImageView fx:id="fotoContactoSeleccionado" fitHeight="111.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label alignment="CENTER" prefHeight="22.0" prefWidth="160.0" text="Foto de perfil" textFill="#3e350e">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="15.0" />
+                     </font></Label>
+                  <Pane fx:id="contenedorFoto" minHeight="126.0" minWidth="158.0" prefHeight="126.0" prefWidth="158.0">
+                     <children>
+                        <ImageView fx:id="fotoContactoSeleccionado" fitHeight="127.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
                </children>
             </VBox>
-            <VBox layoutX="546.0" prefHeight="136.0" prefWidth="223.0">
+            <VBox layoutX="546.0" prefHeight="159.0" prefWidth="258.0">
                <children>
-                  <GridPane prefHeight="132.0" prefWidth="223.0">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="259.0" text="Buscar contacto" textFill="#3e350e">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="15.0" prefWidth="258.0" text="(Ingrese un nombre)" textFill="#3d340e5e">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="258.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="39.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="17.0" prefWidth="90.0" text="Buscar contacto:" />
-                        <TextField fx:id="campoBusquedaNombre" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" onAction="#mostrarContactoPorNombre" text="Button" GridPane.columnIndex="2" />
+                        <TextField fx:id="campoBusquedaNombre" prefHeight="31.0" prefWidth="98.0" />
+                        <Button contentDisplay="GRAPHIC_ONLY" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#mostrarContactoPorNombre" prefHeight="32.0" prefWidth="33.0" text=".." GridPane.columnIndex="1">
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@lupa.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </GridPane>
                </children>
