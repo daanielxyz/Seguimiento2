@@ -24,9 +24,11 @@ public class EditarContactoController {
     private Contacto contactoActual;
     private Runnable callbackActualizarTabla;
     private String rutaFotoSeleccionada;
+    private GestorContactosController gestorContactosController;
 
-    public void inicializarDatos(Contacto contacto, Runnable callback) {
+    public void inicializarDatos(Contacto contacto, GestorContactosController gestorContactosController, Runnable callback) {
         this.contactoActual = contacto;
+        this.gestorContactosController = gestorContactosController;
         this.callbackActualizarTabla = callback;
         this.rutaFotoSeleccionada = contacto.getFotoPerfil();
 
@@ -60,8 +62,7 @@ public class EditarContactoController {
         try {
             Contacto datosNuevos = new Contacto(campoNombre.getText(), campoApellido.getText(), campoTelefono.getText(), campoEmail.getText(), campoDireccion.getText(), campoFechaNacimiento.getValue());
             datosNuevos.setFotoPerfil(rutaFotoSeleccionada);
-            GestorContactosController gestor = new GestorContactosController();
-            gestor.actualizarContacto(contactoActual, datosNuevos);
+            gestorContactosController.actualizarContacto(contactoActual, datosNuevos);
             callbackActualizarTabla.run();
             cerrarVentana();
             mostrarAlertaInfo("Éxito", "Contacto actualizado correctamente.");

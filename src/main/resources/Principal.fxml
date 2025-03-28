@@ -122,7 +122,7 @@
                      </font></Label>
                   <Pane fx:id="contenedorFoto" minHeight="126.0" minWidth="158.0" prefHeight="126.0" prefWidth="158.0">
                      <children>
-                        <ImageView fx:id="fotoContactoSeleccionado" fitHeight="127.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="fotoContactoSeleccionado" fitHeight="126.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                </children>

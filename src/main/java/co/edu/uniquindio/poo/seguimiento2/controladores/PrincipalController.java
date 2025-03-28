@@ -101,7 +101,7 @@ public class PrincipalController implements Initializable {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/EditarContacto.fxml"));
                         Parent parent = loader.load();
                         EditarContactoController controller = loader.getController();
-                        controller.inicializarDatos(contactoSeleccionado, () -> tablaContactos.refresh());
+                        controller.inicializarDatos(contactoSeleccionado, gestorContactosController, () -> tablaContactos.refresh());
 
                         Stage stage = new Stage();
                         stage.setTitle("Editar Contacto");
