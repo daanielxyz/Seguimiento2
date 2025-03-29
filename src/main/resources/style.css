@@ -76,7 +76,7 @@
 }
 
 
-Pane#contenedorFoto {
+StackPane#contenedorFoto {
     -fx-border-color: #3E350E; /* Azul opaco para el marco */
     -fx-border-width: 3px; /* Grosor del marco */
     -fx-border-style: solid; /* Estilo del borde (sólido) */
